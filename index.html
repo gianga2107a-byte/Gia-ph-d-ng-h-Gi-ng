@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2e9">
+  <meta name="description" content="Ghi chép và gìn giữ câu chuyện gia đình — riêng tư trên trình duyệt của bạn.">
+  <title>Gia Phả Nhà Mình</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Gia Phả Nhà Mình - trang chủ">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 32V19M20 19l-9-8m9 8 9-8M11 11V6m0 5H6m5 0h5M29 11V6m0 5h-5m5 0h5M20 19v-6"/><circle cx="20" cy="9" r="4"/><circle cx="8" cy="7" r="3"/><circle cx="32" cy="7" r="3"/><circle cx="20" cy="33" r="4"/></svg></span>
+        <span class="brand-name">gia phả <em>nhà mình</em></span>
+      </a>
+      <div class="family-label"><span class="family-dot"></span> SỔ GIA ĐÌNH</div>
+      <nav class="nav-list" aria-label="Điều hướng chính">
+        <button class="nav-item active" data-view="overview"><span class="nav-icon">⌂</span>Tổng quan</button>
+        <button class="nav-item" data-view="tree"><span class="nav-icon">⌘</span>Cây gia phả</button>
+        <button class="nav-item" data-view="members"><span class="nav-icon">♧</span>Thành viên <span class="nav-count" id="nav-count">0</span></button>
+        <button class="nav-item mobile-only" data-action="export" aria-label="Sao lưu dữ liệu"><span class="nav-icon">↓</span>Sao lưu</button>
+        <button class="nav-item mobile-only" data-action="import" aria-label="Khôi phục dữ liệu"><span class="nav-icon">↑</span>Khôi phục</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="privacy-card"><span class="privacy-icon">◈</span><div><strong>Riêng tư là trên hết</strong><p>Dữ liệu chỉ lưu trên thiết bị này.</p></div></div>
+        <button class="nav-item" id="export-button"><span class="nav-icon">↓</span>Sao lưu dữ liệu</button>
+        <button class="nav-item" id="import-button"><span class="nav-icon">↑</span>Khôi phục dữ liệu</button>
+        <input id="import-file" type="file" accept=".json,application/json" hidden>
+        <div class="sidebar-foot">Một nơi lưu giữ chuyện nhà<br><span>Phiên bản 1.0 · Lưu cục bộ</span></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark small" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 32V19M20 19l-9-8m9 8 9-8M11 11V6m0 5H6m5 0h5M29 11V6m0 5h-5m5 0h5M20 19v-6"/><circle cx="20" cy="9" r="4"/><circle cx="8" cy="7" r="3"/><circle cx="32" cy="7" r="3"/><circle cx="20" cy="33" r="4"/></svg></span><span>Gia Phả <em>Nhà Mình</em></span></div>
+        <div class="breadcrumb" id="breadcrumb">GIA ĐÌNH <span>/</span> TỔNG QUAN</div>
+        <div class="topbar-actions">
+          <label class="search-box"><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="Tìm thành viên…" autocomplete="off"><kbd>⌘ K</kbd></label>
+          <button class="button button-primary top-add" id="add-member-top" aria-label="Thêm thành viên"><span>＋</span> Thêm thành viên</button>
+        </div>
+      </header>
+      <div class="content" id="content" aria-live="polite"></div>
+      <footer class="page-footer"><span>Được tạo để những câu chuyện gia đình còn mãi.</span><span class="local-indicator"><i></i> Đã lưu trên thiết bị này</span></footer>
+    </main>
+  </div>
+  <div id="modal-root"></div>
+  <div id="toast-root" class="toast-root" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
